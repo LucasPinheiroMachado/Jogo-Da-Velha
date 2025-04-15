@@ -4,4 +4,4 @@ Jogo feito com HTML, CSS e TypeScript para ser jogado entre dois jogadores local
 
 # Como rodar? 
 
-Você precisa ter o **node** instalado e dar os comandos **npm install** e em seguida **npx tsc**.
+Você precisa ter o **"node"** instalado e dar os comandos **"npm install"** e em seguida **"npx tsc"**.
