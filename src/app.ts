@@ -9,7 +9,24 @@ function verificarSituacaoDoJogo(btn_jogo: HTMLButtonElement[], playerAtual: str
         [0, 4, 8], // diagonal principal
         [2, 4, 6]  // diagonal secundária
     ];
-
+    for (const [a, b, c] of combinacoes) {
+        if (
+            btn_jogo[a].value !== '' &&
+            btn_jogo[a].value === btn_jogo[b].value &&
+            btn_jogo[b].value === btn_jogo[c].value
+        ) {
+            const textoFimDeJogo: HTMLHeadElement = fimDeJogo.querySelector('h2') as HTMLHeadElement;
+            const btnJogarNovamente: HTMLButtonElement = fimDeJogo.querySelector('button') as HTMLButtonElement;
+    
+            textoFimDeJogo.innerHTML = `Fim de jogo,<br>${playerAtual} venceu!`
+    
+            fimDeJogo.style.display = 'flex';
+    
+            btnJogarNovamente.addEventListener('click', function() {
+                location.reload();
+            });
+        }
+    }
     if (numeroDeJogadas == 9) {
         const textoFimDeJogo: HTMLHeadElement = fimDeJogo.querySelector('h2') as HTMLHeadElement;
             const btnJogarNovamente: HTMLButtonElement = fimDeJogo.querySelector('button') as HTMLButtonElement;
@@ -21,26 +38,6 @@ function verificarSituacaoDoJogo(btn_jogo: HTMLButtonElement[], playerAtual: str
             btnJogarNovamente.addEventListener('click', function() {
                 location.reload();
             });
-    }
-    else {
-        for (const [a, b, c] of combinacoes) {
-            if (
-                btn_jogo[a].value !== '' &&
-                btn_jogo[a].value === btn_jogo[b].value &&
-                btn_jogo[b].value === btn_jogo[c].value
-            ) {
-                const textoFimDeJogo: HTMLHeadElement = fimDeJogo.querySelector('h2') as HTMLHeadElement;
-                const btnJogarNovamente: HTMLButtonElement = fimDeJogo.querySelector('button') as HTMLButtonElement;
-    
-                textoFimDeJogo.innerHTML = `Fim de jogo,<br>${playerAtual} venceu!`
-    
-                fimDeJogo.style.display = 'flex';
-    
-                btnJogarNovamente.addEventListener('click', function() {
-                    location.reload();
-                });
-            }
-        }
     }
 }
 
