@@ -9,6 +9,7 @@ function verificarSituacaoDoJogo(btn_jogo: HTMLButtonElement[], playerAtual: str
         [0, 4, 8], // diagonal principal
         [2, 4, 6]  // diagonal secundária
     ];
+    
     for (const [a, b, c] of combinacoes) {
         if (
             btn_jogo[a].value !== '' &&
@@ -25,19 +26,18 @@ function verificarSituacaoDoJogo(btn_jogo: HTMLButtonElement[], playerAtual: str
             btnJogarNovamente.addEventListener('click', function() {
                 location.reload();
             });
-        }
-    }
-    if (numeroDeJogadas == 9) {
-        const textoFimDeJogo: HTMLHeadElement = fimDeJogo.querySelector('h2') as HTMLHeadElement;
+        } else if (numeroDeJogadas == 9) {
+            const textoFimDeJogo: HTMLHeadElement = fimDeJogo.querySelector('h2') as HTMLHeadElement;
             const btnJogarNovamente: HTMLButtonElement = fimDeJogo.querySelector('button') as HTMLButtonElement;
-
+    
             textoFimDeJogo.innerHTML = `Fim de jogo,<br>Deu empate!`
-
+    
             fimDeJogo.style.display = 'flex';
-
+    
             btnJogarNovamente.addEventListener('click', function() {
                 location.reload();
             });
+        }
     }
 }
 
